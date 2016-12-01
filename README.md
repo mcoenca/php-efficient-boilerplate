@@ -92,17 +92,15 @@ Then hash their md5 passwords with `password_hash` with the rest of the migratio
 
 ## Build and package management
 
-Using
-
 ### Models
 
 We use `j4mie/idiorm`, for a very simple ORM. You can do more if you want to. See the docs here
 
 ### Classes
 
-We're using autocomposer to autoload
-to load our controllers and models classes with PSR4. See composer.json "autoload"
-Also, all classes in app/lib are loaded with psr-0 to allow more flexible naming
+We're using autocomposer to autoload our controllers and models classes with PSR4. See composer.json "autoload".
+
+Also, all classes in app/lib are loaded with psr-0 to allow more flexible naming.
 
 Ref: http://phpenthusiast.com/blog/how-to-autoload-with-composer
 
@@ -116,10 +114,12 @@ I'm a big fan of pug, coming from Node and Javascript land.
 
 Perfect: awesome people are creating a php version of pug right now :)
 
-Pug-php: https://github.com/pug-php/pug
-+ https://github.com/pug-php/pug-assets for minification etc...
-+ Markdown filters using https://github.com/cebe/markdown
-:markdown
++ Pug-php: https://github.com/pug-php/pug
++ Pug-Assets: https://github.com/pug-php/pug-assets for minification etc...
++ Static markdown filters: https://github.com/cebe/markdown
+
+The available filters are
+:markdown 
 :github-markdown
 :inline-github-markdown
 :markdown-extra
@@ -127,13 +127,15 @@ Pug-php: https://github.com/pug-php/pug
 ### Scss
 
 We use a php scss package creating its own server with cache
-management https://github.com/leafo/scssphp
-see style.php
-We route request to it using /css/* route redirection. See router.php
+management. It's https://github.com/leafo/scssphp
+
+See `style.php` to understand what this is about.
+
+We route css requests to it using `/css/*` route redirection in `router.php`.
 
 ### Translations
 
-We use oscaro/gettext, but without the hard to install gettext extension. 
+We use oscaro/gettext, but without the hard to install gettext extension. Ref: https://github.com/oscarotero/Gettext
 
 We just use php arrays atm, see the Translation class
 
@@ -173,6 +175,7 @@ https://github.com/lstrojny/functional-php
 
 cf http://stackoverflow.com/questions/7959673/directory-structure-for-mvc
 
+```
 public_html/              (for public files) (should be public, place only index.php in here)
 public_html/images
 public_html/js            (for your js files, or custom generated ones)
@@ -194,6 +197,7 @@ app/cache          (cached library files => pug and scss)
 app/cron          (scheduled jobs)
 app/db/seeds+migrations  (for database migration and seed scripts)
 node_modules/ (for babel)
+```
 
 ## TODO
 
