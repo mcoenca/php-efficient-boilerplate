@@ -1,0 +1,27 @@
+extends layouts/layout.pug
+
+block title
+  title= appName
+  link(rel="stylesheet" href="/css/base")
+
+block scripts
+  //- script(src="/js/home.js")
+
+block content
+  h1 Login
+  #connexion-page.clearfix
+    .containerbig
+      if flash.error
+        each error in flash.error
+          h1=trs(error)
+      #connexion_form
+        form(action="/se-connecter" method="post")
+          h2.connexion_form-title=trs("Je me connecte")
+          .formulaire
+            input#email(name="email" placeholder=trs("Email") type="email" required)
+          .formulaire
+            input#password(name="password" placeholder=trs("Mot de passe") type="password" required)
+          p.log
+            a(href=forgottenPasswordUrl)=trs("J'ai oublié mon mot de passe !")
+            div(style="clear:both; margin-bottom: 15px;")
+            input#sidentifier.barber-btn.red-btn(type="submit" value=trs("S'identifier"))

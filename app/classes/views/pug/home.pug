@@ -1,0 +1,41 @@
+extends layouts/layout.pug
+
+block title
+  title=appName
+  link(rel="stylesheet" href="/css/base")
+
+block scripts
+  script(src="/js/home.js")
+
+block content
+  - $description = ['text' => 'Text', 'showIt' => true]
+  - $products = [['name' => 'prepashave'], ['name' => 'extrashave']]
+  h1= appName
+  #container.col
+    unless user
+      h4 Log in please
+    if description.showIt
+      h1=description.text
+    else
+      h1 No description set
+    - foreach ($products as $product)
+      include components/product.pug
+
+    if user
+      p You are amazing #{user.prenom} #{user.nom}
+
+      //- |#{$swag('swag')}
+      - foreach($array as $yo)
+        |#{trs(yo)}
+        p!=trs(yo)
+        p
+          =trs(yo)
+          |swag
+    else
+      p
+        |Get on it
+        =user.prenom
+    p.
+      Pug.php is PHP port Pug (JS)
+      the node template engine
+      (previously named Jade).

@@ -1,0 +1,5 @@
+vendor/*
+logs/*
+app/cache/*
+node_modules/*
+phinx.yml
