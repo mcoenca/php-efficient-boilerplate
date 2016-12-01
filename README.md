@@ -1,6 +1,6 @@
 # Simple but Modern PHP Boilerplate
 
-*A close-to plain PHP boilerplate featuring modern Routing, Templating, Migrations, Localization and Assets by Slim, Pug, Phinx, ES6 Babel, SCSS, gettext*
+*A close-to plain PHP boilerplate featuring modern routing, templating, migrations, localization and assets powered by great single-purpose packages like Slim, Pug, Phinx, Babel, SCSS and gettext.*
 
 ## Why ?
 
@@ -8,7 +8,7 @@ Simple Answer : :sweat_drops: :dash: :sweat_drops: :dash: :sweat_drops:
 
 Long Answer : PHP is still everywhere. Maintaining old PHP projects with files all other the place and routing like we're in the 90's doesn't make for a happy developer. And I strive for happiness.
 
-Rewriting in a different language (RoR) is always more pain. I wanted to gradually augment my PHP skills and the level of my PHP codebase. Without going through the hassle of a Big Framework(TM).
+Rewriting in a different language (RoR) is always more pain than expected. I wanted to gradually augment my PHP skills and the level of my PHP codebase. Without going through the hassle of a Big Framework™ .
 
 So I found some good and simple packages + a structure that will increase my productivity and mental state without being very hard to manage.
 
