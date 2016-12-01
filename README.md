@@ -23,10 +23,10 @@ It will become yours too.
 
 ## Installation
 
-1. you need PHP > 5.6 (Also in the command line, if you want the local dev server)
+1. You need PHP > 5.6 (Also in the command line, if you want the local dev server)
 2. Configure the `config.php` file with your own db credentials and stuff
-3. install composer depencies: `$ php composer.phar install`
-4. install babel: `$ npm run install`
+3. Install composer depencies: `$ php composer.phar install`
+4. Install babel: `$ npm run install`
 5. Run local PHP server: `$ php -S localhost:8000 -t public_html/ public_html/index.php`
 6. Enjoy my magnificient home template.
 
@@ -37,8 +37,11 @@ It will become yours too.
 We use the Slim framework v3 as base for the project. https://www.slimframework.com/docs/
 
 It's a very simple router, but very well supported in the community. Equivalent to Flask in Python.
-See the project "slim skeleton" for a complete Slim setup and their docs.
-See index.php for initial setup, and follow the white rabbit... Ahem, no, it's better to follow `require_once` and the function calls !
+See the project [slim-skeleton](https://github.com/slimphp/Slim-Skeleton) for a complete Slim setup and their docs.
+
+See `index.php` for initial setup, and follow the white rabbit :rabbit2: ... 
+
+Ahem, no, it's better to follow `require_once` and function calls ! :poop:
 
 ### App and Routing setup
 
@@ -74,19 +77,15 @@ For example:
 We've provided some sample migrations and relevant seeding so you can see:
 
 - How you can do all those things.
-- How it can be useful to handle an example problem common in old PHP apps: passing from a old pasword hash like `md5` to a secure `bcrypt` one.
-- See App/Lib/Authentication
+- How it can be useful to handle an example problem common in old PHP apps: passing from a old pasword hash like `md5` to a secure `bcrypt` one. See `app/classes/lib/authentication.php` for more info.
 
 Once db config setup, you can try:
 
-First migration, users db setup :
-`$ php vendor/bin/phinx migrate -e development -t 20161128175922`
+1. First migration, users table setup. `$ php vendor/bin/phinx migrate -e development -t 20161128175922`
 
-Then seed :
-`$ php vendor/bin/phinx seed:run -s UserSeeder`
+2. Some users seed. `$ php vendor/bin/phinx seed:run -s UserSeeder`
 
-Then hash their md5 passwords with `password_hash` with the rest of the migrations:
-`$ php vendor/bin/phinx migrate -e development `
+3. Hash their md5 passwords with new bcrypt `password_hash` and rest of the migrations. `$ php vendor/bin/phinx migrate -e development `
 
 
 
@@ -94,7 +93,7 @@ Then hash their md5 passwords with `password_hash` with the rest of the migratio
 
 ### Models
 
-We use `j4mie/idiorm`, for a very simple ORM. You can do more if you want to. See the docs here
+We use `j4mie/idiorm`, for a very simple ORM. You can do more if you want to. See the docs here: https://idiorm.readthedocs.io/en/latest/
 
 ### Classes
 
@@ -141,11 +140,11 @@ We just use php arrays atm, see the Translation class
 
 There is a bit of magic happening here:
 
-We detect in all templates trs() calls and translate them
-or add the new token to the translation files
-+ you can add a markdown prefix to specify what token should be parsed as markdown
+In all template calls to `trs($token)` we translate the token if it exists, or add the new token to the translation files.
 
-So when a client wants to modify a string, you just have to send him your new.php file. He finds the string he wants to modify, send it back to you.
+You can add a markdown prefix to your tokens like `md-*` to specify that some token should be parsed as markdown after being translated.
+
+So when a client wants to modify a string, you just have to send him your `new.php` file. He finds the string he wants to modify, send it back to you, you run the build scripts, commit, and it's over.
 
 
 ### JS tasks
@@ -205,3 +204,4 @@ node_modules/ (for babel)
 - Add support for remote localization file edit and syncing in build phase or through an api
 - Set up assets minification
 - Setup page headers lib
+- Deployment documentation
